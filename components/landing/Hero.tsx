@@ -17,7 +17,7 @@ const Hero = () => {
       </p>
       <div className="flex flex-row gap-4 justify-center items-center my-5">
         <Link href={isSignedIn ? "/movies" : "/sign-up"}>
-          <Button variant="destructive" size="lg">
+          <Button variant="destructive" size="lg" className="font-bold">
             Get Started
           </Button>
         </Link>
