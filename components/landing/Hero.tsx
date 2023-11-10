@@ -16,7 +16,7 @@ const Hero = () => {
         Ready to watch? Sign in to the app or signup with your email.
       </p>
       <div className="flex flex-row gap-4 justify-center items-center my-5">
-        <Link href={isSignedIn ? "/movies" : "/sign-up"}>
+        <Link href={isSignedIn ? "/home" : "/sign-up"}>
           <Button variant="destructive" size="lg" className="font-bold">
             Get Started
           </Button>
