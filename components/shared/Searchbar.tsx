@@ -29,7 +29,7 @@ function Searchbar({ routeType }: Props) {
   //   }, [search, routeType]);
 
   return (
-    <div className="flex flex-1 items-center bg-slate-300 rounded-full px-4">
+    <div className="flex flex-1 items-center bg-[#f3f4f6] rounded-full px-4">
       <Search className="text-slate-800"/>
       <Input
         id="text"
