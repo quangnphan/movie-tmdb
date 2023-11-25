@@ -24,7 +24,7 @@ const Trending = () => {
     fetchTrending();
   }, []);
 
-  if (!trendingMovies) return <Skeleton />;
+  if (!trendingMovies) return <Skeleton className="w-full h-[20px] rounded-full" />;
 
   return (
     <div>
