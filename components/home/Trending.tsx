@@ -15,7 +15,6 @@ const Trending = () => {
         const trendingData = await fetchTrendingMovies();
         setTrendingMovies(trendingData);
 
-        // Add similar calls for other sections
       } catch (error) {
         console.error("Error fetching data:", error);
       }
