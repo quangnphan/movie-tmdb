@@ -1,14 +1,9 @@
-"use client"
-
-import React from 'react'
-import { useLoading } from '@/providers/loading-provider'
+import Trending from '@/components/home/Trending'
 
 const Page = () => {
-  const { isLoading } = useLoading()
-
   return (
     <div>
-        {isLoading ? "true" : "false"}
+        <Trending />
     </div>
   )
 }
