@@ -25,27 +25,14 @@ body,
 }
 
 @layer components {
-  /* .main-container {
-    @apply flex min-h-screen flex-1 flex-col items-center px-6 pb-10 pt-28 max-md:pb-32 sm:px-10;
-  }
-  .topbar {
-    @apply fixed top-0 z-30 flex w-full items-center justify-between px-6 py-3;
-  }
-
-  .bottombar {
-    @apply fixed bottom-0 z-10 w-full rounded-t-3xl bg-glassmorphism p-4 xs:px-7 md:hidden;
-  } */
-  /* .searchbar {
-    @apply flex gap-1 rounded-lg px-4 py-2;
-  }
-
-  .searchbar_input {
-    @apply border-none outline-none !important;
-  } */
   .search_input{
     @apply bg-[#f3f4f6] border-none outline-none text-slate-800 placeholder-gray-500 min-w-[250px] !important;
   }
   .no-focus {
     @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
   }
+}
+
+.swiper-button-prev,.swiper-button-next{
+  color: white !important;
 }

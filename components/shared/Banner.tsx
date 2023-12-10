@@ -19,7 +19,7 @@ import { Movie } from "@/types/tmdb";
 import Link from "next/link";
 import { getImageUrl } from "@/services/tmdb";
 
-import { Star, Play } from "lucide-react";
+import { Star, PlayCircle } from "lucide-react";
 
 interface BannerSlideProps {
   movies: Movie[];
@@ -27,46 +27,43 @@ interface BannerSlideProps {
 
 const Banner = ({ movies }: BannerSlideProps) => {
   return (
-    <div className="relative md:pb-[45%] pb-[55%]">
+    <div className="relative h-[300px] md:h-[400px]">
       <Swiper
-        modules={[Autoplay]}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        modules={[Autoplay, Navigation]}
+        navigation
+        autoplay={{ delay: 7000, disableOnInteraction: false }}
         slidesPerView={1}
         className="!absolute !top-0 !left-0 !w-full !h-full !rounded-lg group"
       >
         {movies.map((movie: any) => (
-          <SwiperSlide key={movie.id} className="relative group-hover:opacity-60 group-hover:transition-opacity group-hover:duration-500">
-            <Link href="/">
+          <SwiperSlide key={movie.id} className="group-hover:duration-500">
+            <Link href="">
               <Image
                 src={getImageUrl(movie.backdrop_path, "w1280")}
                 layout="fill"
                 alt="movie banner"
-                className="object-cover"
+                className="object-cover !opacity-[0.7]"
               />
-              <div className="absolute flex items-center justify-center text-white p-7">
-                <div>
-                  {/* <Play
-                  className="text-slate-100 text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-10 opacity-0 group-hover:opacity-100 group-hover:visible transition duration-700"
-                  height={100}
-                  width={100}
-                /> */}
+              <div className="text-white py-7 px-12 h-full relative flex flex-col justify-between items-start">
+                <div className="inline-flex bg-blue-700 rounded-full py-2 px-3">
+                  <Star className="mr-1" />
+                  {movie.vote_average.toFixed(1)}
+                </div>
 
-                  <div className="inline-flex bg-blue-700 rounded-full py-2 px-3">
-                    <Star className="mr-1" />
-                    {movie.vote_average.toFixed(1)}
+                <div>
+                  <div className="absolute flex items-center justify-center inset-0 text-slate-100 z-10 opacity-0 group-hover:opacity-100 group-hover:visible transition duration-700">
+                    <PlayCircle height={100} width={100} />
                   </div>
-                  <div className="flex flex-col justify-center md:mt-8">
-                    <h1 className="md:text-3xl xl:text-5xl text-xl font-black tracking-wide md:mt-8 mt-2 text-blue-700 text-shadow w-[60%]">
-                      {movie.title}
-                    </h1>
-                    <p className="md:mt-3 text-shadow">
-                      {movie.release_date &&
-                        `Release date: ${movie.release_date}`}
-                    </p>
-                    <p className="hidden xl:block md:mt-5 w-[30%] text-base text-slate-300 text-shadow overflow-hidden max-h-24 break-words text-ellipsis">
-                      {movie.overview}
-                    </p>
-                  </div>
+                  <h1 className="md:text-2xl xl:text-4xl text-xl font-black tracking-wide text-blue-700">
+                    {movie.title}
+                  </h1>
+                  <p className="md:mt-3 text-shadow">
+                    {movie.release_date &&
+                      `Release date: ${movie.release_date}`}
+                  </p>
+                  <p className="hidden xl:block md:mt-5 text-base text-slate-300 text-shadow max-h-12 break-words w-[70%] line-clamp-3 text-ellipsis">
+                    {movie.overview}
+                  </p>
                 </div>
               </div>
             </Link>
