@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import { Input } from "../ui/input";
-import { Search } from "lucide-react";
+import { Input } from '../ui/input';
+import { Search } from 'lucide-react';
 
 interface Props {
   routeType?: string;
@@ -13,7 +13,7 @@ interface Props {
 
 function Searchbar({ routeType }: Props) {
   const router = useRouter();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   //   // query after 0.3s of no input
   //   useEffect(() => {
@@ -29,17 +29,17 @@ function Searchbar({ routeType }: Props) {
   //   }, [search, routeType]);
 
   return (
-    <div className="flex flex-1 items-center bg-[#f3f4f6] rounded-full px-4">
-      <Search className="text-slate-800"/>
+    <div className='flex flex-1 items-center rounded-full bg-[#f3f4f6] px-4'>
+      <Search className='text-slate-800' />
       <Input
-        id="text"
+        id='text'
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         // placeholder={`${
         //   routeType !== "/search" ? "Search communities" : "Search creators"
         // }`}
-        placeholder="Search..."
-        className="search_input no-focus"
+        placeholder='Search...'
+        className='search_input no-focus'
       />
     </div>
   );

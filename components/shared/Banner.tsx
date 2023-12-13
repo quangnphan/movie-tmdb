@@ -33,7 +33,7 @@ const Banner = ({ movies }: BannerSlideProps) => {
         navigation
         autoplay={{ delay: 7000, disableOnInteraction: false }}
         slidesPerView={1}
-        className="!absolute !top-0 !left-0 !w-full !h-full !rounded-lg group"
+        className="group !absolute !left-0 !top-0 !h-full !w-full !rounded-lg"
       >
         {movies.map((movie: any) => (
           <SwiperSlide key={movie.id} className="group-hover:duration-500">
@@ -44,24 +44,24 @@ const Banner = ({ movies }: BannerSlideProps) => {
                 alt="movie banner"
                 className="object-cover !opacity-[0.7]"
               />
-              <div className="text-white py-7 px-12 h-full relative flex flex-col justify-between items-start">
-                <div className="inline-flex bg-blue-700 rounded-full py-2 px-3">
+              <div className="relative flex h-full flex-col items-start justify-between px-12 py-7 text-white">
+                <div className="inline-flex rounded-full bg-blue-700 px-3 py-2">
                   <Star className="mr-1" />
                   {movie.vote_average.toFixed(1)}
                 </div>
 
                 <div>
-                  <div className="absolute flex items-center justify-center inset-0 text-slate-100 z-10 opacity-0 group-hover:opacity-100 group-hover:visible transition duration-700">
+                  <div className="absolute inset-0 z-10 flex items-center justify-center text-slate-100 opacity-0 transition duration-700 group-hover:visible group-hover:opacity-100">
                     <PlayCircle height={100} width={100} />
                   </div>
-                  <h1 className="md:text-2xl xl:text-4xl text-xl font-black tracking-wide text-blue-700">
+                  <h1 className="text-xl font-black tracking-wide text-blue-700 md:text-2xl xl:text-4xl">
                     {movie.title}
                   </h1>
-                  <p className="md:mt-3 text-shadow">
+                  <p className="text-shadow md:mt-3">
                     {movie.release_date &&
                       `Release date: ${movie.release_date}`}
                   </p>
-                  <p className="hidden xl:block md:mt-5 text-base text-slate-300 text-shadow max-h-12 break-words w-[70%] line-clamp-3 text-ellipsis">
+                  <p className="text-shadow line-clamp-3 hidden max-h-12 w-[70%] text-ellipsis break-words text-base text-slate-300 md:mt-5 xl:block">
                     {movie.overview}
                   </p>
                 </div>

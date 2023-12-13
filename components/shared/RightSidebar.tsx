@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const RightSidebar = () => {
   return (
-    <section className="space-y-4 py-6 flex flex-col h-full border-l border-slate-600 text-white">
+    <section className='flex h-full flex-col space-y-4 border-l border-slate-600 py-6 text-white'>
       RightSidebar
     </section>
   );
