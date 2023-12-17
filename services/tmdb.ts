@@ -1,21 +1,30 @@
-import { Movie } from "@/types/tmdb"
+import { TopRatedMoviesResponse, WeeklyMoviesResponse } from "@/types/tmdb"
 import { tmdbApi } from "./api";
-
-const tmdbImageUrl = 'https://image.tmdb.org/t/p/';
+import { tmdbImageUrl } from "@/helper/constants";
 
 export const getImageUrl = (filePath: string, size: string = 'w500'): string => {
     return `${tmdbImageUrl}${size}${filePath}`;
 }
 
-export const fetchTrendingMovies = async (): Promise<Movie[]> => {
+export const fetchTrendingMovies = async (): Promise<WeeklyMoviesResponse> => {
     try {
-        console.log(process.env.NEXT_PUBLIC_TMDB_API_KEY)
         const response = await tmdbApi.get('/trending/movie/week');
-        const trendingMovies: Movie[] = response.data.results;
+        const trendingMovies: WeeklyMoviesResponse = response.data;
         
         return trendingMovies;
     } catch (error: any) {
-        console.log(error);
+        console.log('Error fetching trending movies:', error.message);
         throw error;
     }
 }
+
+export const fetchTopRatedMovies = async (): Promise<TopRatedMoviesResponse> => {
+    try {
+      const response = await tmdbApi.get('/movie/top_rated');
+      const topRatedMovies: TopRatedMoviesResponse = response.data;
+      return topRatedMovies;
+    } catch (error: any) {
+      console.error('Error fetching top-rated movies:', error.message);
+      throw error;
+    }
+  };

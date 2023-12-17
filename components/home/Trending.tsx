@@ -1,19 +1,19 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Movie } from '@/types/tmdb';
+import { Movie, WeeklyMoviesResponse } from '@/types/tmdb';
 import { fetchTrendingMovies } from '@/services/tmdb';
 
 import { Skeleton } from '../ui/skeleton';
 import Banner from '../shared/Banner';
 
 const Trending = () => {
-  const [trendingMovies, setTrendingMovies] = useState<Movie[] | null>(null);
+  const [trendingMovies, setTrendingMovies] = useState<Movie[] | undefined>(undefined);
   useEffect(() => {
     const fetchTrending = async () => {
       try {
-        const trendingData = await fetchTrendingMovies();
-        setTrendingMovies(trendingData);
+        const data: WeeklyMoviesResponse = await fetchTrendingMovies();
+        setTrendingMovies(data.results.slice(0,10));
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -26,9 +26,9 @@ const Trending = () => {
     return <Skeleton className='h-[20px] w-full rounded-full' />;
 
   return (
-    <div>
+    <>
       <Banner movies={trendingMovies} />
-    </div>
+    </>
   );
 };
 

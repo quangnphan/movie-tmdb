@@ -1,6 +1,6 @@
 export interface Movie {
     adult: boolean;
-    backdrop_path: string | null;
+    backdrop_path: string;
     genre_ids: number[];
     id: number;
     media_type: string;
@@ -8,7 +8,7 @@ export interface Movie {
     original_title: string;
     overview: string;
     popularity: number;
-    poster_path: string | null;
+    poster_path: string;
     release_date: string;
     title: string;
     video: boolean;
@@ -16,7 +16,15 @@ export interface Movie {
     vote_count: number;
 }
 
-interface AnotherResponseType {
-    // Define properties for the second type of response
-    // ...
-  }
+export interface WeeklyMoviesResponse {
+    page: number;
+    results: Movie[];
+    total_pages: number;
+    total_results: number;
+}
+export interface TopRatedMoviesResponse {
+    page: number;
+    results: Movie[];
+    total_pages: number;
+    total_results: number;
+}

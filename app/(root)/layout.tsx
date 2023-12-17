@@ -5,12 +5,12 @@ import RightSidebar from "@/components/shared/RightSidebar";
 
 const MainLayout = async (props: { children: React.ReactNode }) => {
   return (
-    <div className="bg-dark-lighten">
+    <>
       <main className="flex flex-row">
         <div className="hidden md:flex md:w-64 md:flex-col md:inset-y-0 z-[80]">
           <LeftSidebar />
         </div>
-        <section className="flex min-h-screen flex-1 flex-col items-center px-6 pb-10 pt-6 max-md:pb-32 sm:px-10">
+        <section className="flex min-h-screen flex-1 flex-col items-center px-6 pb-10 pt-6 max-md:pb-32">
           <div className="w-full">
             <Topbar />
             {props.children}
@@ -21,7 +21,7 @@ const MainLayout = async (props: { children: React.ReactNode }) => {
         </div>
       </main>
       <Bottombar />
-    </div>
+    </>
   );
 };
 
