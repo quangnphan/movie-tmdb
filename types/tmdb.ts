@@ -16,13 +16,7 @@ export interface Movie {
     vote_count: number;
 }
 
-export interface WeeklyMoviesResponse {
-    page: number;
-    results: Movie[];
-    total_pages: number;
-    total_results: number;
-}
-export interface TopRatedMoviesResponse {
+export interface MoviesResponse {
     page: number;
     results: Movie[];
     total_pages: number;

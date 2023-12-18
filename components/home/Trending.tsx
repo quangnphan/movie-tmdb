@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Movie, WeeklyMoviesResponse } from '@/types/tmdb';
+import { Movie, MoviesResponse } from '@/types/tmdb';
 import { fetchTrendingMovies } from '@/services/tmdb';
 
 import { Skeleton } from '../ui/skeleton';
@@ -12,7 +12,7 @@ const Trending = () => {
   useEffect(() => {
     const fetchTrending = async () => {
       try {
-        const data: WeeklyMoviesResponse = await fetchTrendingMovies();
+        const data: MoviesResponse = await fetchTrendingMovies();
         setTrendingMovies(data.results.slice(0,10));
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -23,7 +23,7 @@ const Trending = () => {
   }, []);
 
   if (!trendingMovies)
-    return <Skeleton className='h-[20px] w-full rounded-full' />;
+    return <Skeleton className='mb-10 h-[300px] w-full rounded-xl' />;
 
   return (
     <>
