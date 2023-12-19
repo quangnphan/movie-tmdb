@@ -10,5 +10,4 @@ export const tmdbApi = axios.create({
 
 export const appApi = axios.create({
   baseURL: APP_URL,
-  // Other configuration options specific to your API
 });

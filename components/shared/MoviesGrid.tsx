@@ -14,7 +14,7 @@ const MoviesGrid = ({ movies }: MoviesProps) => {
       {movies.map((movie, index) => (
         <div
           key={movie.id}
-          className={`relative bg-gray-800 p-4 group ${
+          className={`relative bg-gray-800 p-4 group overflow-hidden ${
             index === 0 ? 'md:col-span-2 md:row-span-2' : ''
           }`}
         >
@@ -22,7 +22,7 @@ const MoviesGrid = ({ movies }: MoviesProps) => {
             <Image
               src={getImageUrl(movie.poster_path, 'w500')}
               alt={movie.title}
-              className='object-cover group-hover:!opacity-60 duration-500'
+              className='object-cover group-hover:!opacity-60 duration-500 group-hover:scale-110'
               layout='fill'
             />
           </div>

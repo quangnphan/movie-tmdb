@@ -42,7 +42,7 @@ const Banner = ({ movies }: BannerSlideProps) => {
                 src={getImageUrl(movie.backdrop_path, 'w1280')}
                 layout='fill'
                 alt='movie banner'
-                className='object-cover !opacity-[0.8]'
+                className='object-cover !opacity-[0.7]'
               />
               <div className='relative flex h-full flex-col items-start justify-between px-8 py-4 md:px-12 md:py-7 text-white'>
                 <div className='inline-flex rounded-full bg-orange-600 px-3 py-2'>

@@ -9,6 +9,15 @@ export const getImageUrl = (
   return `${tmdbImageUrl}${size}${filePath}`;
 };
 
+export const fetchGenreList = async () => {
+  try {
+    const response = await tmdbApi.get('/genre/movie/list');
+    console.log(response);
+  } catch (error) {
+    console.log("Failed to fetch genre list")
+  }
+}
+
 export const fetchTrendingMovies = async (): Promise<MoviesResponse> => {
   try {
     const response = await tmdbApi.get('/trending/movie/week');
