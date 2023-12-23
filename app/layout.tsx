@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "@/providers/theme-provider";
-import { LoadingProvider } from "@/providers/loading-provider";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { ClerkProvider } from '@clerk/nextjs';
+import { ThemeProvider } from '@/context/theme-provider';
+import { LoadingProvider } from '@/context/loading-provider';
+import { GenresProvider } from '@/context/genres-provider';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Movie Trailer App",
-  description: "Movie Trailer Application Using Nextjs",
+  title: 'Movie Trailer App',
+  description: 'Movie Trailer Application Using Nextjs',
 };
 
 export default function RootLayout({
@@ -19,16 +20,16 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
+      <html lang='en' suppressHydrationWarning>
         <body className={inter.className}>
           <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
+            attribute='class'
+            defaultTheme='system'
             enableSystem
             disableTransitionOnChange
           >
             <LoadingProvider>
-              {children}
+              <GenresProvider>{children}</GenresProvider>
             </LoadingProvider>
           </ThemeProvider>
         </body>

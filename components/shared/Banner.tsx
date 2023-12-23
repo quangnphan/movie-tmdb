@@ -1,15 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
 
-import {
-  Navigation,
-  Autoplay,
-  Pagination,
-  Scrollbar,
-  A11y,
-} from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -44,7 +38,7 @@ const Banner = ({ movies }: BannerSlideProps) => {
                 alt='movie banner'
                 className='object-cover !opacity-[0.7]'
               />
-              <div className='relative flex h-full flex-col items-start justify-between px-8 py-4 md:px-12 md:py-7 text-white'>
+              <div className='relative flex h-full flex-col items-start justify-between px-8 py-4 text-white md:px-12 md:py-7'>
                 <div className='inline-flex rounded-full bg-orange-600 px-3 py-2'>
                   <Star className='mr-1' />
                   {movie.vote_average.toFixed(1)}
@@ -57,7 +51,17 @@ const Banner = ({ movies }: BannerSlideProps) => {
                   <h1 className='text-xl font-black tracking-wide text-orange-600 md:text-2xl xl:text-4xl'>
                     {movie.title}
                   </h1>
-                  <p className='text-shadow md:mt-3'>
+                  <div className='my-1 flex items-center gap-1 md:mt-3'>
+                    {movie?.genres?.map((genre, index) => (
+                      <div
+                        key={index}
+                        className='rounded-full bg-black/[0.8] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white'
+                      >
+                        {genre}
+                      </div>
+                    ))}
+                  </div>
+                  <p className='text-shadow text-sm md:mt-3 md:text-lg'>
                     {movie.release_date &&
                       `Release date: ${movie.release_date}`}
                   </p>

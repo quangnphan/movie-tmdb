@@ -1,4 +1,4 @@
-import { MoviesResponse } from '@/types/tmdb';
+import { MoviesResponse, Genre } from '@/types/tmdb';
 import { tmdbApi } from './api';
 import { tmdbImageUrl } from '@/helper/constants';
 
@@ -12,7 +12,8 @@ export const getImageUrl = (
 export const fetchGenreList = async () => {
   try {
     const response = await tmdbApi.get('/genre/movie/list');
-    console.log(response);
+    const genres: Genre[] = response.data.genres;
+    return genres;
   } catch (error) {
     console.log("Failed to fetch genre list")
   }
