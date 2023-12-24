@@ -19,9 +19,9 @@ export const fetchGenreList = async () => {
   }
 }
 
-export const fetchTrendingMovies = async (): Promise<MoviesResponse> => {
+export const fetchTrendingMovies = async (param: string): Promise<MoviesResponse> => {
   try {
-    const response = await tmdbApi.get('/trending/movie/week');
+    const response = await tmdbApi.get(`/trending/movie/${param}`);
     const trendingMovies: MoviesResponse = response.data;
 
     return trendingMovies;

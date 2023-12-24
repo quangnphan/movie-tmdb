@@ -9,8 +9,10 @@ import Banner from '../shared/Banner';
 import { useGenres } from '@/context/genres-provider';
 
 const Trending = () => {
-  const {genres,loading} = useGenres();
-  const [trendingMovies, setTrendingMovies] = useState<Movie[] | undefined>(undefined);
+  const { genres, loading } = useGenres();
+  const [trendingMovies, setTrendingMovies] = useState<Movie[] | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     const getGenreNames = (genreIds: number[]) => {
@@ -19,18 +21,18 @@ const Trending = () => {
         return genre ? genre.name : 'Unknown Genre';
       });
     };
-  
+
     const fetchTrending = async () => {
       try {
-        const data: MoviesResponse = await fetchTrendingMovies();
-        if(data && !loading){
+        const data: MoviesResponse = await fetchTrendingMovies('week');
+        if (data && !loading) {
           const movies = data.results;
           const moviesWithGenres = movies.map((movie) => ({
             ...movie,
-            genres: getGenreNames(movie.genre_ids)
-          }))
+            genres: getGenreNames(movie.genre_ids),
+          }));
 
-          setTrendingMovies(moviesWithGenres.slice(0,10));
+          setTrendingMovies(moviesWithGenres.slice(0, 10));
         }
       } catch (error) {
         console.error('Error fetching data:', error);

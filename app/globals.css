@@ -36,3 +36,24 @@ body,
 .swiper-button-prev,.swiper-button-next{
   color: white !important;
 }
+
+/* CUSTOM SCROLLBAR*/
+::-webkit-scrollbar {
+  @apply w-[10px];
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-button {
+  @apply hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#121212] rounded-full hover:bg-[#0e0d0d] transition duration-300;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0 !important;
+}
