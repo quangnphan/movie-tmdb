@@ -15,11 +15,13 @@ export const fetchGenreList = async () => {
     const genres: Genre[] = response.data.genres;
     return genres;
   } catch (error) {
-    console.log("Failed to fetch genre list")
+    console.log('Failed to fetch genre list');
   }
-}
+};
 
-export const fetchTrendingMovies = async (param: string): Promise<MoviesResponse> => {
+export const fetchTrendingMovies = async (
+  param: string
+): Promise<MoviesResponse> => {
   try {
     const response = await tmdbApi.get(`/trending/movie/${param}`);
     const trendingMovies: MoviesResponse = response.data;
@@ -49,6 +51,25 @@ export const fetchUpcomingMovies = async (): Promise<MoviesResponse> => {
     return upcomingMovies;
   } catch (error: any) {
     console.error('Error fetching upcoming movies:', error.message);
+    throw error;
+  }
+};
+
+export const fetchDiscoverMovies = async ({
+  genres = [],
+  sortOrder = 'desc',
+}) => {
+  try {
+    const response = await tmdbApi.get('/discover/movie', {
+      params: {
+        with_genres: genres.join(','),
+        sort_by: `popularity.${sortOrder}`,
+      },
+    });
+    const discover: MoviesResponse = response.data;
+    return discover;
+  } catch (error: any) {
+    console.error('Error fetching top-rated movies:', error.message);
     throw error;
   }
 };
