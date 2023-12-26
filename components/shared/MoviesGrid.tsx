@@ -10,11 +10,11 @@ interface MoviesProps {
 
 const MoviesGrid = ({ movies }: MoviesProps) => {
   return (
-    <div className='grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'>
+    <div className='grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5'>
       {movies.map((movie, index) => (
         <div
           key={movie.id}
-          className={`relative bg-gray-800 p-4 group overflow-hidden ${
+          className={`group relative overflow-hidden bg-gray-800 p-4 ${
             index === 0 ? 'md:col-span-2 md:row-span-2' : ''
           }`}
         >
@@ -22,15 +22,15 @@ const MoviesGrid = ({ movies }: MoviesProps) => {
             <Image
               src={getImageUrl(movie.poster_path, 'w500')}
               alt={movie.title}
-              className='object-cover group-hover:!opacity-60 duration-500 group-hover:scale-110'
+              className='object-cover duration-500 group-hover:scale-110 group-hover:!opacity-60'
               layout='fill'
             />
           </div>
           <div>
-            <div className='absolute inset-0 z-10 flex items-center justify-center text-slate-100 transition duration-500 opacity-0 group-hover:opacity-100 cursor-pointer'>
+            <div className='absolute inset-0 z-10 flex cursor-pointer items-center justify-center text-slate-100 opacity-0 transition duration-500 group-hover:opacity-100'>
               <PlayCircle height={40} width={40} />
             </div>
-            <p className='absolute bottom-2 left-2 font-semibold text-white'>
+            <p className='absolute bottom-0 left-0 w-full overflow-hidden overflow-ellipsis whitespace-nowrap bg-black/60 px-2 py-2 text-sm font-bold text-white'>
               {movie.title}
             </p>
           </div>
