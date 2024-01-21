@@ -21,7 +21,7 @@ interface BannerSlideProps {
 
 const Banner = ({ movies }: BannerSlideProps) => {
   return (
-    <div className='relative h-[220px] md:h-[450px]'>
+    <div className='relative h-[220px] md:h-[550px]'>
       <Swiper
         modules={[Autoplay, Navigation]}
         navigation
@@ -36,7 +36,7 @@ const Banner = ({ movies }: BannerSlideProps) => {
                 src={getImageUrl(movie.backdrop_path, 'w1280')}
                 layout='fill'
                 alt='movie banner'
-                className='object-cover !opacity-[0.7]'
+                className='object-cover !opacity-[0.9]'
               />
               <div className='relative flex h-full flex-col items-start justify-between px-8 py-4 text-white md:px-12 md:py-7'>
                 <div className='inline-flex rounded-full bg-orange-600 px-3 py-2'>
