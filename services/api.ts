@@ -1,5 +1,7 @@
 import axios from "axios";
-import { TMDB_URL, APP_URL } from "@/helper/constants";
+
+const TMDB_URL = "https://api.themoviedb.org/3";
+const APP_URL = "https://localhost:3000";
 
 export const tmdbApi = axios.create({
   baseURL: TMDB_URL,

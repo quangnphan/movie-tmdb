@@ -1,6 +1,7 @@
 import { MoviesResponse, Genre } from '@/types/tmdb';
 import { tmdbApi } from './api';
-import { tmdbImageUrl } from '@/helper/constants';
+
+const tmdbImageUrl = 'https://image.tmdb.org/t/p/';
 
 export const getImageUrl = (
   filePath: string,
@@ -73,3 +74,14 @@ export const fetchDiscoverMovies = async ({
     throw error;
   }
 };
+
+export const fetchMovieDetails = async (movieId: number) => {
+  try {
+    const response = await tmdbApi.get(`https://api.themoviedb.org/3/movie/${movieId}`);
+
+    return response.data;
+  } catch (error: any) {
+    console.log('Error fetching movie details:', error.message)
+    throw error;
+  }
+}

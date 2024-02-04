@@ -1,7 +1,7 @@
-
+import { ReactNode } from "react";
 
 const LandingLayout = (props: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) => {
   return (
     <div className="bg-container min-h-screen">
