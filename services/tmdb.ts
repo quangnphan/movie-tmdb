@@ -75,7 +75,7 @@ export const fetchDiscoverMovies = async ({
   }
 };
 
-export const fetchMovieDetails = async (movieId: number) => {
+export const fetchMovieDetails = async (movieId: string) => {
   try {
     const response = await tmdbApi.get(`https://api.themoviedb.org/3/movie/${movieId}`);
 

@@ -10,7 +10,7 @@ interface Props {
 
 const DiscoverGrid = ({ movies }: Props) => {
   return (
-    <div className='relative grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7'>
+    <div className='relative grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'>
       {movies.map((movie) => (
         <div
           key={movie.id}
