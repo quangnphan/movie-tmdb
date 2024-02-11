@@ -26,7 +26,7 @@ body,
 
 @layer components {
   .search_input{
-    @apply bg-[#f3f4f6] border-none outline-none text-slate-800 placeholder-gray-500 min-w-[250px] !important;
+    @apply bg-[#f3f4f6] border-none outline-none text-slate-800 placeholder-gray-500 min-w-[200px] !important;
   }
   .no-focus {
     @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;

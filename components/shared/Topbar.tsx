@@ -9,13 +9,15 @@ const Topbar = () => {
   const form = useForm();
   const isLoading = form.formState.isSubmitting;
   return (
-    <div className='flex items-center'>
+    <div className='flex items-center gap-2 mb-6'>
       <MobileSidebar />
-      <div>
-        <Searchbar />
-      </div>
-      <div className='flex w-full justify-end'>
-        <UserButton afterSignOutUrl='/' />
+      <div className='flex w-full flex-row items-center justify-between gap-2'>
+        <div className='w-full md:w-[400px]'>
+          <Searchbar />
+        </div>
+        <div className='flex justify-end'>
+          <UserButton afterSignOutUrl='/' />
+        </div>
       </div>
     </div>
   );

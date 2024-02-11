@@ -29,7 +29,7 @@ const ExplorePage = () => {
   if(!movies) return <Skeleton className='my-10 h-[800px] w-full rounded-xl' />;
 
   return (
-    <div className="container px-0 py-8">
+    <div className="explore-page">
       <DiscoverGrid 
         movies={movies}
       />

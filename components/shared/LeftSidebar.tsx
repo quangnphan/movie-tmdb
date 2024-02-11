@@ -13,7 +13,7 @@ const LeftSidebar = () => {
   const pathname = usePathname();
   return (
     <div className='flex h-full flex-col space-y-4 border-r-2 border-slate-600 py-6 text-white'>
-      <div className='flex-1 px-6 fixed'>
+      <div className='flex-1 px-[15px] md:fixed'>
         <Link href='/home' className='mb-14 flex items-center'>
           <div className='relative mr-2 flex h-8 w-8 flex-row items-center text-orange-600'>
             {/* <Image fill alt="logo" src="/logo.png" /> */}

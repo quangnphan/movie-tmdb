@@ -21,7 +21,7 @@ interface BannerSlideProps {
 
 const Banner = ({ movies }: BannerSlideProps) => {
   return (
-    <div className='relative h-[220px] md:h-[550px]'>
+    <div className='relative h-[220px] md:h-[500px]'>
       <Swiper
         modules={[Autoplay, Navigation]}
         navigation

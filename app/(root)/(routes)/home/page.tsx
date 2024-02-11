@@ -4,7 +4,7 @@ import Upcoming from "@/components/home/Upcoming";
 
 const Page = () => {
   return (
-    <div className="container px-0 py-8">
+    <div className="home-page">
       <Trending />
       <TopRated />
       <Upcoming />

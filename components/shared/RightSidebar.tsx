@@ -32,7 +32,7 @@ const RightSidebar = () => {
 
   return (
     <section className='flex h-full flex-col space-y-4 border-l-2 border-slate-600 pt-6 text-white'>
-      <div className='fixed px-6 overflow-y-auto max-h-screen custom-scrollbar'>
+      <div className='fixed px-[15px] overflow-y-auto max-h-screen custom-scrollbar'>
         <div className='mb-6'>
           <h2 className='mb-2 font-bold text-orange-600'>Genres</h2>
           <div className='flex flex-wrap items-center justify-start gap-2'>
