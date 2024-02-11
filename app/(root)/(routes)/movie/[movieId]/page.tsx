@@ -9,6 +9,7 @@ const SearchPage = () => {
     const params = useParams<{movieId: string}>();
 
     const [movie,setMovie] = useState<any>(null);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(()=>{
         const fetchMovie = async () => {
@@ -16,7 +17,10 @@ const SearchPage = () => {
             try {
                 const response = await fetchMovieDetails(params?.movieId);
 
-                setMovie(response);
+                if(response){
+                    setMovie(response);
+                    setLoading(false);
+                }
             } catch (error) {
                 console.log(error)
             }
@@ -25,7 +29,7 @@ const SearchPage = () => {
         fetchMovie();
     },[params.movieId])
 
-    if(!movie) return <Skeleton className='my-10 h-[800px] w-full rounded-xl' />;
+    if(loading) return <Skeleton className='my-10 h-[800px] w-full rounded-xl' />;
 
   return (
     <div className='movie-details'>
