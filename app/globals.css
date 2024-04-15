@@ -10,6 +10,10 @@ body,
   color: #dcdcdc;
 }
 
+p {
+  font-size: 14px;
+}
+
 .bg-container {
   background-image: linear-gradient(
       to top,
@@ -56,4 +60,8 @@ body,
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 0 !important;
+}
+
+.custom-text-shadow{
+  text-shadow: 0 2px 1px #333;
 }

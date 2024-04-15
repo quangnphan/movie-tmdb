@@ -66,7 +66,7 @@ const RightSidebar = () => {
                   />
 
                   <div className='flex flex-col text-sm'>
-                    <h2 className=''>{movie.title}</h2>
+                    <h2 className='font-medium text-gray-300'>{movie.title}</h2>
                     <p className='text-gray-500'>{movie.release_date}</p>
                   </div>
                 </Link>
