@@ -1,5 +1,6 @@
 'use client';
 
+import CustomSwiper from '@/components/shared/CustomSwiper';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { fetchMovieDetails, getImageUrl } from '@/services/tmdb';
@@ -68,7 +69,7 @@ const SearchPage = () => {
                   <Button
                     variant='secondary'
                     size='lg'
-                    className='mt-2 font-bold uppercase tracking-wider !bg-red-600 hover:opacity-90'
+                    className='mt-2 !bg-red-600 font-bold uppercase tracking-wider hover:opacity-90'
                   >
                     Watch
                   </Button>
@@ -79,8 +80,8 @@ const SearchPage = () => {
             {/* Content Below Banner */}
             <div>
               {/* Cast Slider */}
-              <div className='z-[1000] text-white'>Cast slider</div>
-
+              <h3>CAST</h3>
+              <CustomSwiper data={movie} />
               {/* Run Time, Summary, Info */}
               <div>run time | summary | info</div>
             </div>
