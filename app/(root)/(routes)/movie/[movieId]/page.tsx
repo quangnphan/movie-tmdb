@@ -1,6 +1,6 @@
 'use client';
 
-import CustomSwiper from '@/components/shared/CustomSwiper';
+import CastSwiper from '@/components/shared/CastSwiper';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { fetchMovieDetails, getImageUrl } from '@/services/tmdb';
@@ -81,7 +81,7 @@ const SearchPage = () => {
             <div>
               {/* Cast Slider */}
               <h3>CAST</h3>
-              <CustomSwiper data={movie} />
+              <CastSwiper data={movie} />
               {/* Run Time, Summary, Info */}
               <div>run time | summary | info</div>
             </div>
