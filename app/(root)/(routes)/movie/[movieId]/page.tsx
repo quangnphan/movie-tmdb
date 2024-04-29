@@ -1,7 +1,9 @@
 'use client';
 
+import Details from '@/components/movie/Details';
 import CastSwiper from '@/components/shared/CastSwiper';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { fetchMovieDetails, getImageUrl } from '@/services/tmdb';
 import { MovieDetails } from '@/types/tmdb';
@@ -80,10 +82,36 @@ const SearchPage = () => {
             {/* Content Below Banner */}
             <div>
               {/* Cast Slider */}
-              <h3>CAST</h3>
+              <h3 className='font-bold text-white'>CAST</h3>
               <CastSwiper data={movie} />
               {/* Run Time, Summary, Info */}
-              <div>run time | summary | info</div>
+              <div className='flex justify-center items-start gap-[20px]'>
+                <Details data={movie} />
+                <Separator orientation='vertical' />
+                <div className='max-w-[600px]'>
+                  <h3 className='font-bold text-white'>STORY</h3>
+                  <p className='text-sm text-white'>
+                    {movie.overview}
+                  </p>
+                </div>
+                <Separator orientation='vertical' />
+                <div className='flex-1 text-white'>
+                  <h3 className='mb-2 font-bold'>DETAILS</h3>
+                  <div>
+                    <p>
+                      <span className='font-semibold'>Status:</span> Released
+                    </p>
+                    <p>
+                      <span className='font-semibold'>Release date:</span>{' '}
+                      {movie.release_date}
+                    </p>
+                    <p>
+                      <span className='font-semibold'>Spoken language:</span>{' '}
+                      English
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </>

@@ -31,7 +31,7 @@ const Banner = ({ movies }: BannerSlideProps) => {
       >
         {movies.map((movie: Movie) => (
           <SwiperSlide key={movie.id} className='group-hover:duration-500'>
-            <Link href=''>
+            <Link href={`/movie/${movie.id}`}>
               <Image
                 src={getImageUrl(movie.backdrop_path, 'w1280')}
                 layout='fill'

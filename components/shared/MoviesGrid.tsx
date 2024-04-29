@@ -3,6 +3,7 @@ import { Movie } from '@/types/tmdb';
 import Image from 'next/image';
 import { getImageUrl } from '@/services/tmdb';
 import { PlayCircle } from 'lucide-react';
+import Link from 'next/link';
 
 interface MoviesProps {
   movies: Movie[];
@@ -12,7 +13,8 @@ const MoviesGrid = ({ movies }: MoviesProps) => {
   return (
     <div className='grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5'>
       {movies.map((movie, index) => (
-        <div
+        <Link
+          href={`/movie/${movie.id}`}
           key={movie.id}
           className={`group relative overflow-hidden bg-gray-800 p-4 ${
             index === 0 ? 'md:col-span-2 md:row-span-2' : ''
@@ -34,7 +36,7 @@ const MoviesGrid = ({ movies }: MoviesProps) => {
               {movie.title}
             </p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

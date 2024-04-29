@@ -7,6 +7,7 @@ import { MovieDetails } from '@/types/tmdb';
 import { getImageUrl } from '@/services/tmdb';
 
 import { FreeMode, Grid } from 'swiper/modules';
+import Image from 'next/image';
 
 interface SwiperProps {
   data: MovieDetails;
@@ -42,21 +43,25 @@ const CastSwiper = ({ data }: SwiperProps) => {
         {data?.credits.cast.slice(0, 20).map((item) => (
           <SwiperSlide
             key={item?.id}
-            style={{ height: 'auto', width: 'auto' }}
-            className='animate-slideright mb-[15px] rounded-full shadow-lg'
           >
             <div className='flex items-center gap-2'>
               {item.profile_path ? (
-                <img
-                  src={getImageUrl(item.profile_path)}
-                  alt={item.name}
-                  className='h-[50px] w-[50px] rounded-full border-2 object-cover'
+                <Image
+                src={getImageUrl(item.profile_path)}
+                alt={item.name}
+                className='rounded-full border-2 object-cover'
+                width={50}
+                height={50}
+                objectFit="cover"
+                objectPosition="center"
                 />
               ) : (
-                <img
+                <Image
                   src={''}
                   alt='error'
-                  className='h-[50px] w-[50px] rounded-full border-2 object-cover'
+                  className='rounded-full border-2 object-cover'
+                  width={50}
+                  height={50}
                 />
               )}
 
