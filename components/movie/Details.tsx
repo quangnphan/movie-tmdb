@@ -7,10 +7,10 @@ interface Props {
 
 const Details = ({ data }: Props) => {
   return (
-    <div className='flex-1'>
+    <div className='w-[15%]'>
       <div className='mb-[25px]'>
         <h3 className='font-bold text-white'>RATING</h3>
-        <div className='text-2xl text-slate-400'>{data.vote_average}</div>
+        <div className='text-2xl text-slate-400'>{data.vote_average.toFixed(2)}/10</div>
       </div>
       <div>
         <h3 className='font-bold text-white'>RUNTIME</h3>
