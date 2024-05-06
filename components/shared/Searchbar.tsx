@@ -40,6 +40,8 @@ function Searchbar({ routeType }: Props) {
         // }`}
         placeholder='Search...'
         className='search_input no-focus'
+        autoComplete="off"
+        spellCheck={false}
       />
     </div>
   );

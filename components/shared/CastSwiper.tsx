@@ -15,7 +15,7 @@ interface SwiperProps {
 
 const CastSwiper = ({ data }: SwiperProps) => {
   return (
-    <div className='overflow-hidden'>
+    <div className='xl:max-w-[1000px] 2xl:max-w-[1400px] overflow-hidden'>
       <Swiper
         spaceBetween={15}
         modules={[Grid]}
@@ -27,7 +27,7 @@ const CastSwiper = ({ data }: SwiperProps) => {
         }}
         breakpoints={{
           1100: {
-            slidesPerView: 6,
+            slidesPerView: 5,
             spaceBetween: 10,
           },
           768: {
@@ -41,19 +41,17 @@ const CastSwiper = ({ data }: SwiperProps) => {
         }}
       >
         {data?.credits.cast.slice(0, 20).map((item) => (
-          <SwiperSlide
-            key={item?.id}
-          >
-            <div className='flex items-center gap-2'>
+          <SwiperSlide key={item?.id}>
+            <div className='mb-[10px] flex items-start gap-2'>
               {item.profile_path ? (
                 <Image
-                src={getImageUrl(item.profile_path)}
-                alt={item.name}
-                className='rounded-full border-2 object-cover'
-                width={50}
-                height={50}
-                objectFit="cover"
-                objectPosition="center"
+                  src={getImageUrl(item.profile_path)}
+                  alt={item.name}
+                  className='rounded-full border-2'
+                  width={60}
+                  height={50}
+                  objectFit='cover'
+                  objectPosition='center'
                 />
               ) : (
                 <Image
@@ -66,10 +64,10 @@ const CastSwiper = ({ data }: SwiperProps) => {
               )}
 
               <div>
-                <h5 className='max-w-[120px] overflow-hidden overflow-ellipsis whitespace-nowrap'>
+                <h5 className='max-w-[120px] overflow-hidden overflow-ellipsis pt-[10px] text-[13px]'>
                   {item.name}
                 </h5>
-                <p className='text-[12px]'>as {item.character}</p>
+                <p className='text-[11px]'>as {item.character || "NA"}</p>
               </div>
             </div>
           </SwiperSlide>

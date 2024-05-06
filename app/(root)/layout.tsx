@@ -7,16 +7,16 @@ const MainLayout = async (props: { children: React.ReactNode }) => {
   return (
     <>
       <main className='flex flex-row overflow-hidden'>
-        <div className='z-[80] hidden lg:inset-y-0 lg:flex lg:w-[240px] lg:flex-col min-w-[240px]'>
+        <div className='z-[80] hidden lg:inset-y-0 lg:flex lg:w-[200px] lg:flex-col min-w-[200px]'>
           <LeftSidebar />
         </div>
         <section className='flex min-h-screen flex-1 flex-col container px-[10px] md:px-[15px] py-6'>
-          <div className='w-full lg:w-[calc(100%-240px)] xl:w-full'>
+          <div className='w-full'>
             <Topbar />
             {props.children}
           </div>
         </section>
-        <div className='inset-y-0 z-[80] flex w-full flex-col max-xl:hidden'>
+        <div className='inset-y-0 z-[80] flex w-full max-w-[300px] flex-col max-[1400px]:hidden'>
           <RightSidebar />
         </div>
       </main>

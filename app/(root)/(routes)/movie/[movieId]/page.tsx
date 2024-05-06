@@ -85,15 +85,15 @@ const SearchPage = () => {
               <h3 className='font-bold text-white'>CAST</h3>
               <CastSwiper data={movie} />
               {/* Run Time, Summary, Info */}
-              <div className='flex h-[200px] max-h-[200px] items-start justify-center gap-[20px] mt-[30px] w-full'>
+              <div className='mt-[30px] flex max-md:flex-col gap-5 w-full items-start justify-center'>
                 <Details data={movie} />
-                <Separator orientation='vertical' />
-                <div className='flex-1'>
-                  <h3 className='font-bold text-white'>STORY</h3>
+
+                <div className='flex-1 p-[10px]'>
+                  <h3 className='mb-[15px] font-bold text-white'>STORY</h3>
                   <p className='text-sm text-white'>{movie.overview}</p>
                 </div>
-                <Separator orientation='vertical' />
-                <div className='w-[30%] text-white'>
+
+                <div className='w-[30%] p-[10px] text-white'>
                   <h3 className='mb-2 font-bold'>DETAILS</h3>
                   <div>
                     <p>

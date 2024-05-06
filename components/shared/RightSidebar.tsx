@@ -54,7 +54,7 @@ const RightSidebar = () => {
             {movies.map((movie: Movie, index) => {
               return (
                 <Link
-                  href=''
+                  href={`/movie/${movie.id}`}
                   key={index}
                   className='flex flex-row gap-3 hover:opacity-90'
                 >
