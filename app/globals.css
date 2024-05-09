@@ -65,3 +65,9 @@ p {
 .custom-text-shadow{
   text-shadow: 0 2px 1px #333;
 }
+
+.react-player {
+  height: 70vh !important;
+  width: 100% !important;
+  margin: auto !important;
+}

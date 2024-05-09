@@ -54,13 +54,7 @@ const CastSwiper = ({ data }: SwiperProps) => {
                   objectPosition='center'
                 />
               ) : (
-                <Image
-                  src={''}
-                  alt='error'
-                  className='rounded-full border-2 object-cover'
-                  width={50}
-                  height={50}
-                />
+                null
               )}
 
               <div>

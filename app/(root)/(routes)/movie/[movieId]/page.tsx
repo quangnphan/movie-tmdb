@@ -3,7 +3,6 @@
 import Details from '@/components/movie/Details';
 import CastSwiper from '@/components/shared/CastSwiper';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { fetchMovieDetails, getImageUrl } from '@/services/tmdb';
 import { MovieDetails } from '@/types/tmdb';
@@ -16,7 +15,7 @@ const SearchPage = () => {
   const params = useParams<{ movieId: string }>();
 
   const [movie, setMovie] = useState<MovieDetails>();
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -55,7 +54,7 @@ const SearchPage = () => {
               <div className='absolute bottom-4 left-4 z-10 translate-y-[65px]'>
                 <div className='h-[200px] w-[150px] bg-gray-800'>
                   <Image
-                    src={getImageUrl(movie.poster_path, 'w1280')}
+                    src={getImageUrl(movie.poster_path)}
                     layout='fill'
                     alt='portrait background'
                     className='object-cover'
@@ -67,7 +66,7 @@ const SearchPage = () => {
                 <h2 className='custom-text-shadow text-xl font-black tracking-wide text-slate-100 md:text-3xl'>
                   {movie.title}
                 </h2>
-                <Link href={''}>
+                <Link href={`/watch/${params.movieId}/${movie.videos.results[0].id}`}>
                   <Button
                     variant='secondary'
                     size='lg'
