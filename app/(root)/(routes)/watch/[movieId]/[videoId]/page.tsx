@@ -30,20 +30,26 @@ const WatchVideoPage = () => {
   }, [params.movieId]);
 
   if (loading) return <Skeleton className='my-10 h-[70vh] w-full rounded-xl' />;
+  if (!movie) {
+    return <div>Movie not found.</div>;
+  }
+
+  const lastVideoIndex = movie.videos.results.length - 1;
+  const lastVideoId = movie.videos.results[lastVideoIndex].key
 
   return (
     <div className='min-h-[95vh]'>
       {movie?.videos?.results && (
         <ReactPlayer
-          url={`https://www.youtube.com/watch?v=${movie.videos.results[0].key}`}
+          url={`https://www.youtube.com/watch?v=${lastVideoId}`}
           className='react-player'
           controls
         />
       )}
-      <h5 className='px-2 pt-2 text-[18px] text-slate-400'>
-        You&#39;re watching
+      <h5 className='px-2 pt-2 text-[14px] text-slate-400'>
+        You&#39;re watching the official trailer of
       </h5>
-      <h3 className='px-2 text-[30px] text-white'>{movie?.title}</h3>
+      <h3 className='px-2 text-[30px] text-white text-bold'>{movie?.title}</h3>
     </div>
   );
 };

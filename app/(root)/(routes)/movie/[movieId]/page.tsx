@@ -37,6 +37,13 @@ const SearchPage = () => {
   if (loading)
     return <Skeleton className='my-10 h-[800px] w-full rounded-xl' />;
 
+  if (!movie) {
+    return <div>Movie not found.</div>;
+  }
+
+  const lastVideoIndex = movie.videos.results.length - 1;
+  const lastVideoId = movie.videos.results[lastVideoIndex].id;
+
   return (
     <div className='movie-details relative'>
       {movie ? (
@@ -66,7 +73,7 @@ const SearchPage = () => {
                 <h2 className='custom-text-shadow text-xl font-black tracking-wide text-slate-100 md:text-3xl'>
                   {movie.title}
                 </h2>
-                <Link href={`/watch/${params.movieId}/${movie.videos.results[0].id}`}>
+                <Link href={`/watch/${params.movieId}/${lastVideoId}`}>
                   <Button
                     variant='secondary'
                     size='lg'
