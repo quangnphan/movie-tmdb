@@ -71,3 +71,19 @@ p {
   width: 100% !important;
   margin: auto !important;
 }
+
+@media screen and (max-width: 900px) {
+  .react-player {
+    height: 50vh !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .scroll-horizontal {
+    overflow: auto !important;
+  }
+
+  .react-player {
+    height: 35vh !important;
+  }
+}

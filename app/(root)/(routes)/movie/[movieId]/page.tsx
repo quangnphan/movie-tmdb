@@ -96,7 +96,7 @@ const SearchPage = () => {
 
                 <div className='flex-1 p-[10px]'>
                   <h3 className='mb-[15px] font-bold text-white'>STORY</h3>
-                  <p className='text-sm text-white'>{movie.overview}</p>
+                  <p className='text-sm leading-5 text-white'>{movie.overview}</p>
                 </div>
 
                 <div className='w-[30%] p-[10px] text-white'>

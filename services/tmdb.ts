@@ -1,4 +1,3 @@
-import { MoviesResponse, Genre } from '@/types/tmdb';
 import { tmdbApi } from './api';
 
 const tmdbImageUrl = 'https://image.tmdb.org/t/p/';
@@ -42,7 +41,14 @@ export async function fetchDiscoverMovies({ genres = [], sortOrder = 'desc' }) {
 
 export async function fetchMovieDetails(movieId: string) {
   const response = await tmdbApi.get(
-    `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&append_to_response=credits,videos`
+    `movie/${movieId}?language=en-US&append_to_response=credits,videos`
   );
+  return response.data;
+}
+
+export async function fetchMovieReviews(movieId: string) {
+  const response = await tmdbApi.get(
+    `/movie/${movieId}/reviews`
+  )
   return response.data;
 }
